@@ -1,0 +1,21 @@
+services:
+  react-app:
+    image: react-app
+    build: ./client
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - mern-app
+
+  node-web-api:
+    image: node-web-api
+    build: ./server
+    ports:
+      - "5000:5000"
+    networks:
+      - mern-app
+
+networks:
+  mern-app:
+    driver: bridge
